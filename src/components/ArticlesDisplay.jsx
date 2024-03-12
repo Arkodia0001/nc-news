@@ -1,7 +1,7 @@
 import ArticleCard from "./ArticleCard"
-import Loading from "./src/components/Loading"
+import Loading from "./Loading"
 
-const ArticleDisplay = ({articles, isLoading}) => {
+const ArticlesDisplay = ({articles, isLoading}) => {
     if(isLoading){
         return <Loading />
     }
@@ -15,4 +15,4 @@ const ArticleDisplay = ({articles, isLoading}) => {
     );
 };
 
-export default ArticleDisplay
+export default ArticlesDisplay;

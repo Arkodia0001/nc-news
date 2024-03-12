@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { fetchArticles } from "../../api"
-import ArticleDisplay from "../../ArticleDisplay"
+import ArticlesDisplay from "./ArticlesDisplay"
 
 const Homepage = () => {
 const [articles, setArticles] = useState([])
@@ -14,7 +14,7 @@ useEffect(() => {
 }, [articles])
 
     return (
-        <ArticleDisplay articles={articles} isLoading={isLoading} />
+        <ArticlesDisplay articles={articles} isLoading={isLoading} />
     )
 
 }

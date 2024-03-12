@@ -4,7 +4,7 @@
     padding: 2rem;
     text-align: center;
 }
-.article_display {
+.articles_display {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
