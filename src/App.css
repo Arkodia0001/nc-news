@@ -1,0 +1,21 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+.article_display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem;
+    justify-content: center;
+}
+.article_card {
+    border: 1px solid black;
+    padding: 1rem;
+}
+.Header {
+    border: 1px solid black;
+    
+}
