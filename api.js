@@ -24,3 +24,23 @@ export const fetchComments = (article_id) => {
     return data.comments;
   })
 };
+
+export const increaseArticleVotes = (article_id) => {
+  const patchBody = {
+    inc_votes: 1
+  }
+  let endpoint = `/articles/${article_id}`
+  return newsApiUrl.patch(endpoint, patchBody).then(({data}) => {
+    return data.article
+  })
+}
+
+export const decreaseArticleVotes = (article_id) => {
+  const patchBody = {
+    inc_votes: -1
+  }
+  let endpoint = `/articles/${article_id}`
+  return newsApiUrl.patch(endpoint, patchBody).then(({data}) => {
+    return data.article
+  })
+}
