@@ -1,8 +1,9 @@
 #root {
-    max-width: 1280px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
+    justify-content: center;
 }
 .articles_display {
     display: flex;
@@ -17,11 +18,27 @@
 }
 .Header {
     border: 1px solid black;
-    
 }
 .comments{
     border: 1px solid black
 }
 .comment_card{
     border: 1px solid black
+}
+/* mobile styles */
+
+
+/* small tablet styles*/
+@media screen and (min-width: 620px) {
+    
+}
+
+/* large tablets and laptop styles*/
+@media screen and (min-width: 960px) {
+    
+}
+
+/* desktop styles*/
+@media screen and (min-width: 1200px) {
+    
 }

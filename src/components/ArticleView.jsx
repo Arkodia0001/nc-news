@@ -4,20 +4,33 @@ import { fetchArticle } from "../../api";
 import Loading from "./Loading";
 import CommentSection from "./CommentSection";
 import { Link } from "react-router-dom";
+import { increaseArticleVotes, decreaseArticleVotes } from "../../api";
 
 const ArticleView = () => {
     const { article_id } = useParams();
     const [article, setArticle] = useState({})
     const [isLoading, setIsLoading] = useState(true)
+    const [votes, setVotes] = useState(0)
+    
     const event = new Date(article.created_at)
     const date = event.toDateString()
 
     useEffect(() => {
         fetchArticle(article_id).then((articleFromApi) => {
             setArticle(articleFromApi[0])
+            setVotes(articleFromApi[0].votes)
             setIsLoading(false)
         });
     }, [article_id]);
+
+    const upVote = (article_id) => {
+        setVotes((currVotes) => currVotes +1)
+        increaseArticleVotes(article_id)
+    }
+    const downVote = (article_id) => {
+        setVotes((currVotes) => currVotes -1)
+        decreaseArticleVotes(article_id)
+    }
 
 if(isLoading){
     return <Loading/>
@@ -34,7 +47,9 @@ return (
         <img src={article.article_img_url} height={250} width={250}/>
         <p>By {article.author}</p>
         <p>{article.body}</p>
-        <p>{article.votes} likes!</p>
+        <p>{votes} likes!</p>
+        <button onClick={() => upVote(article_id)}>UPVOTE</button>
+        <button onClick={() => downVote(article_id)}>DOWNVOTE</button>
     </section>
     <section className="comments_section">
         <CommentSection article_id={article_id}/>
