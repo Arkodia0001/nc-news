@@ -44,3 +44,10 @@ export const decreaseArticleVotes = (article_id) => {
     return data.article
   })
 }
+
+export const postNewComment = (article_id, commentToAdd) => {
+  let endpoint = `/articles/${article_id}/comments`
+  return newsApiUrl.post(endpoint, commentToAdd).then(({data}) => {
+    return data.comment
+  })
+}
