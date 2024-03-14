@@ -1,6 +1,8 @@
 const CommentCard = ({ comment }) => {
     const event = new Date(comment.created_at)
     const date = event.toDateString()
+
+    
   return (
     <div className="comment_card">
       <p>{comment.body}</p>

@@ -11,7 +11,8 @@ const ArticleView = () => {
     const [article, setArticle] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [votes, setVotes] = useState(0)
-    
+    const [err, setErr] = useState(null)
+
     const event = new Date(article.created_at)
     const date = event.toDateString()
 
@@ -25,11 +26,20 @@ const ArticleView = () => {
 
     const upVote = (article_id) => {
         setVotes((currVotes) => currVotes +1)
-        increaseArticleVotes(article_id)
+        setErr(null)
+        increaseArticleVotes(article_id).catch((err)=> {
+            setVotes((currVotes) => currVotes -1)
+            setErr("Something went wrong! Please try again.")
+        })
     }
+
     const downVote = (article_id) => {
         setVotes((currVotes) => currVotes -1)
-        decreaseArticleVotes(article_id)
+        setErr(null)
+        decreaseArticleVotes(article_id).catch((err)=> {
+            setVotes((currVotes) => currVotes +1)
+            setErr("Something went wrong! Please try again.")
+        })
     }
 
 if(isLoading){
@@ -48,6 +58,7 @@ return (
         <p>By {article.author}</p>
         <p>{article.body}</p>
         <p>{votes} likes!</p>
+        {err ? <p>{err}</p> : null}
         <button onClick={() => upVote(article_id)}>UPVOTE</button>
         <button onClick={() => downVote(article_id)}>DOWNVOTE</button>
     </section>

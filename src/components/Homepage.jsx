@@ -11,7 +11,7 @@ useEffect(() => {
     setArticles(articlesFromApi)
     setIsLoading(false)        
     })
-}, [articles])
+}, [])
 
     return (
         <ArticlesDisplay articles={articles} isLoading={isLoading} />
