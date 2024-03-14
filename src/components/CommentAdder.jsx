@@ -22,13 +22,13 @@ const CommentAdder = ({ comments, setComments, article_id }) => {
             created_at: new Date(),
             votes: 0,
         }
-        const ogComments = comments
+        const originalComments = comments
         setComments((comments) => [newCommentFake, ...comments])
         postNewComment(article_id, commentToSend).then((commentFromApi) => {
             setNewComment("")
         }).catch((err) => {
             setErr("Something went wrong! Please try again.")
-            setComments(ogComments)
+            setComments(originalComments)
         })
         
     }
@@ -36,7 +36,7 @@ const CommentAdder = ({ comments, setComments, article_id }) => {
         <form className="CommentAdder" onSubmit={handleSubmit}>
             {err ? <p>{err}</p> : null}
             <label htmlFor="newComment">Add a comment
-                <textarea id="newComment" multiline="true" value={newComment} onChange={(event) => setNewComment(event.target.value)}></textarea>
+                <textarea id="newComment" multiline="true" value={newComment} onChange={(event) => setNewComment(event.target.value)} required></textarea>
                 <input type="submit" value="Submit"></input>
             </label>
         </form>

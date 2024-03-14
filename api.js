@@ -51,3 +51,10 @@ export const postNewComment = (article_id, commentToAdd) => {
     return data.comment
   })
 }
+
+export const deleteComment = (comment_id) => {
+  let endpoint = `/comments/${comment_id}`
+  return newsApiUrl.delete(endpoint).then(({data}) => {
+    console.log(data)
+  })
+}

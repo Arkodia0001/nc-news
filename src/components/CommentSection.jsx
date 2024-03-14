@@ -5,6 +5,8 @@ import Loading from "./Loading"
 import { fetchComments } from "../../api"
 import CommentAdder from "./CommentAdder"
 
+
+
 const CommentSection = ({article_id}) => {
     const [isLoading, setIsLoading] = useState(true)
     const [comments, setComments] = useState({})
@@ -24,9 +26,9 @@ const CommentSection = ({article_id}) => {
     <section className="comments"> 
     <h3>Comments</h3>
     <CommentAdder comments={comments} setComments={setComments} article_id={article_id}/>
-    <div className="Comment_list">
+    <div className="Comment_section">
     { comments.map((comment) => {
-        return <CommentCard key={comment.comment_id} comment={comment} />
+            return <CommentCard key={comment.comment_id} comment={comment} comments={comments} setComments={setComments}/>
     })}
     </div>
     </section>
