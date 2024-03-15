@@ -7,9 +7,11 @@ const CommentAdder = ({ comments, setComments, article_id }) => {
     const [newComment, setNewComment] = useState("")
     const { user, setUser } = useContext(UserContext)
     const [err, setErr] = useState(null)
+    const [posting, setPosting] = useState(false)
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setPosting(true)
         setErr(null)
         const commentToSend = {
             username: user.username,
@@ -26,9 +28,11 @@ const CommentAdder = ({ comments, setComments, article_id }) => {
         setComments((comments) => [newCommentFake, ...comments])
         postNewComment(article_id, commentToSend).then((commentFromApi) => {
             setNewComment("")
+            setPosting(false)
         }).catch((err) => {
             setErr("Something went wrong! Please try again.")
             setComments(originalComments)
+            setPosting(false)
         })
         
     }
@@ -37,7 +41,7 @@ const CommentAdder = ({ comments, setComments, article_id }) => {
             {err ? <p>{err}</p> : null}
             <label htmlFor="newComment">Add a comment
                 <textarea id="newComment" multiline="true" value={newComment} onChange={(event) => setNewComment(event.target.value)} required></textarea>
-                <input type="submit" value="Submit"></input>
+                <input type="submit" value="Submit" disabled={newComment.length === 0 || posting === true} ></input>
             </label>
         </form>
     )
