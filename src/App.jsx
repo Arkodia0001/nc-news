@@ -5,9 +5,9 @@ import Homepage from './components/Homepage'
 import ArticleView from './components/ArticleView'
 import { UserContext } from './contexts/UserContext'
 import { useState } from 'react'
+import { TopicsProvider } from './contexts/TopicsContext'
 
 function App() {
-
   const [user, setUser] = useState({
     username: 'cooljmessy',
     name: 'Peter Messy',
@@ -17,15 +17,18 @@ function App() {
 
 
   return (
+    <TopicsProvider>
     <UserContext.Provider value={{ user: user, setUser: setUser }}>
     <div className="App">
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />}/>
+        <Route path={'/:topic'} element={<Homepage />}/>
         <Route path="/articles/:article_id" element={<ArticleView />}/>
       </Routes>
     </div>
     </UserContext.Provider>
+    </TopicsProvider>
   )
 }
 

@@ -4,8 +4,11 @@ const newsApiUrl = axios.create({
   baseURL: "https://nc-news-project-lijk.onrender.com/api",
 });
 
-export const fetchArticles = () => {
-  let endpoint = "/articles";
+export const fetchArticles = (topic) => {
+  let endpoint = `/articles`;
+  if(topic && topic !== 'All'){
+    endpoint += `/?topic=${topic}`
+  }
   return newsApiUrl.get(endpoint).then(({ data }) => {
     return data.articles;
   });
@@ -56,5 +59,12 @@ export const deleteComment = (comment_id) => {
   let endpoint = `/comments/${comment_id}`
   return newsApiUrl.delete(endpoint).then(({data}) => {
     console.log(data)
+  })
+}
+
+export const fetchTopics = () => {
+  let endpoint = '/topics'
+  return newsApiUrl.get(endpoint).then(({data}) => {
+    return data.topics
   })
 }
