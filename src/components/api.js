@@ -4,12 +4,12 @@ const newsApiUrl = axios.create({
   baseURL: "https://nc-news-project-lijk.onrender.com/api",
 });
 
-export const fetchArticles = (topic) => {
+export const fetchArticles = (topic, sortByQuery, orderQuery) => {
   let endpoint = `/articles`;
-  if(topic && topic !== 'All'){
-    endpoint += `/?topic=${topic}`
-  }
-  return newsApiUrl.get(endpoint).then(({ data }) => {
+  
+  const params = {topic: topic, sort_by: sortByQuery, order: orderQuery}
+
+  return newsApiUrl.get(endpoint, {params}).then(({ data }) => {
     return data.articles;
   });
 };

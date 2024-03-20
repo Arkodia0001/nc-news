@@ -23,7 +23,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />}/>
-        <Route path={'/:topic'} element={<Homepage />}/>
+        <Route path="/articles/topic/:topic" element={<Homepage />}/>
         <Route path="/articles/:article_id" element={<ArticleView />}/>
       </Routes>
     </div>

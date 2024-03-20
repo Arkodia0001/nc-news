@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useState } from "react"
 import CommentCard from "./CommentCard"
 import Loading from "./Loading"
-import { fetchComments } from "../../api"
+import { fetchComments } from "./api"
 import CommentAdder from "./CommentAdder"
 
 

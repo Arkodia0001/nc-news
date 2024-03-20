@@ -1,4 +1,4 @@
-import { fetchTopics } from "../../api";
+import { fetchTopics } from "../components/api";
 import { createContext, useState, useEffect } from "react";
 
 export const TopicsContext = createContext()

@@ -6,10 +6,11 @@ const ArticleCard = ({ article }) => {
     return (
         <Link to={`/articles/${article.article_id}`}>
             <div className="article_card">
-                   <p>{article.title}</p>
-            <img src={article.article_img_url} height={100} width={100}/>
-            <p>{date}</p>
-                    <p>Likes: {article.votes}</p>
+                <p>{article.title}</p>
+                <img src={article.article_img_url} height={100} width={100} />
+                <p>{date}</p>
+                <p>Votes: {article.votes}</p>
+                <p>Comments: {article.comment_count}</p>
             </div>
         </Link>
     )
