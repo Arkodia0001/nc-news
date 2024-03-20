@@ -1,4 +1,4 @@
-import { deleteComment } from "../../api"
+import { deleteComment } from "./api"
 
 const DeleteButton = ({comment, comments, setComments }) => {
     const commentsWithoutDeletedComment = comments.filter((commentItem) => {

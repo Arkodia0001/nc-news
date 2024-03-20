@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { postNewComment } from "../../api"
+import { postNewComment } from "./api"
 import { UserContext } from "../contexts/UserContext"
 import { useContext } from "react"
 
@@ -24,11 +24,12 @@ const CommentAdder = ({ comments, setComments, article_id }) => {
             created_at: new Date(),
             votes: 0,
         }
-        const originalComments = comments
+        const originalComments = [...comments]
         setComments((comments) => [newCommentFake, ...comments])
         postNewComment(article_id, commentToSend).then((commentFromApi) => {
             setNewComment("")
             setPosting(false)
+            setComments([commentFromApi, ...originalComments])
         }).catch((err) => {
             setErr("Something went wrong! Please try again.")
             setComments(originalComments)

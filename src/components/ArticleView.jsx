@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
-import { fetchArticle } from "../../api";
+import { fetchArticle } from "./api";
 import Loading from "./Loading";
 import CommentSection from "./CommentSection";
 import { Link } from "react-router-dom";
-import { increaseArticleVotes, decreaseArticleVotes } from "../../api";
+import { increaseArticleVotes, decreaseArticleVotes } from "./api";
 
 const ArticleView = () => {
     const { article_id } = useParams();

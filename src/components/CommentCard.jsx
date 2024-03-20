@@ -12,7 +12,7 @@ const CommentCard = ({ comment, comments, setComments }) => {
       <p>{comment.body}</p>
       <p>By {comment.author}</p>
       <p>{(date)}</p>
-      <p>Likes: {comment.votes}</p>
+      <p>Votes: {comment.votes}</p>
       {user.username === comment.author && comment.comment_id !== undefined ? <DeleteButton comment={comment} comments={comments} setComments={setComments} /> : null}
     </div>
   );
