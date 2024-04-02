@@ -10,7 +10,7 @@ const DeleteButton = ({comment, comments, setComments }) => {
         deleteComment(comment.comment_id)        
     }
 
-    return <button onClick={handleClick}>Delete your comment</button>
+    return <button className="delete_button" onClick={handleClick}>Delete</button>
 }
 
 

@@ -6,6 +6,7 @@ import ArticleView from './components/ArticleView'
 import { UserContext } from './contexts/UserContext'
 import { useState } from 'react'
 import { TopicsProvider } from './contexts/TopicsContext'
+import ErrorPage from './components/ErrorPage'
 
 function App() {
   const [user, setUser] = useState({
@@ -23,8 +24,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />}/>
+        <Route path="/articles" element={<Homepage />}/>
         <Route path="/articles/topic/:topic" element={<Homepage />}/>
         <Route path="/articles/:article_id" element={<ArticleView />}/>
+        <Route path="*" element={<ErrorPage />}/>
       </Routes>
     </div>
     </UserContext.Provider>

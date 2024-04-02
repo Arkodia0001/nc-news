@@ -5,6 +5,7 @@ import Loading from "./Loading";
 import CommentSection from "./CommentSection";
 import { Link } from "react-router-dom";
 import { increaseArticleVotes, decreaseArticleVotes } from "./api";
+import ErrorPage from "./ErrorPage"
 
 const ArticleView = () => {
     const { article_id } = useParams();
@@ -21,6 +22,9 @@ const ArticleView = () => {
             setArticle(articleFromApi[0])
             setVotes(articleFromApi[0].votes)
             setIsLoading(false)
+        })
+        .catch((error) => {
+            setErr({error})
         });
     }, [article_id]);
 
@@ -42,6 +46,13 @@ const ArticleView = () => {
         })
     }
 
+
+if(err){
+    console.log(err)
+    return (
+        <ErrorPage msg={err.error.response.data.msg} status={err.error.response.status}/>
+    )
+}
 if(isLoading){
     return <Loading/>
 }
@@ -59,8 +70,10 @@ return (
         <p>{article.body}</p>
         <p>{votes} likes!</p>
         {err ? <p>{err}</p> : null}
+        <div className="votes_box">
         <button onClick={() => upVote(article_id)}>UPVOTE</button>
         <button onClick={() => downVote(article_id)}>DOWNVOTE</button>
+        </div>
     </section>
     <section className="comments_section">
         <CommentSection article_id={article_id}/>
