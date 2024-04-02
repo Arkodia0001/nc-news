@@ -35,14 +35,23 @@ const CommentAdder = ({ comments, setComments, article_id }) => {
             setComments(originalComments)
             setPosting(false)
         })
-        
+
     }
     return (
-        <form className="CommentAdder" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             {err ? <p>{err}</p> : null}
-            <label htmlFor="newComment">Add a comment
-                <textarea id="newComment" multiline="true" value={newComment} onChange={(event) => setNewComment(event.target.value)} required></textarea>
-                <input type="submit" value="Submit" disabled={newComment.length === 0 || posting === true} ></input>
+            <label htmlFor="newComment" >Add a comment <br/>
+                <textarea
+                    id="newComment"
+                    multiline="true"
+                    value={newComment}
+                    onChange={(event) => setNewComment(event.target.value)}
+                    required
+                    style={{margin: "20px"}}
+                    ></textarea>
+                    <div className="submit_box">
+                <input type="submit" value="Submit" disabled={newComment.length === 0 || posting === true}></input>
+                    </div>
             </label>
         </form>
     )

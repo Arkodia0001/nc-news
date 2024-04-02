@@ -4,13 +4,14 @@ import ArticlesDisplay from "./ArticlesDisplay"
 import TopicPicker from './TopicPicker'
 import { useParams } from "react-router"
 import { useSearchParams } from "react-router-dom";
-
+import ErrorPage from "./ErrorPage"
+import Loading from "./Loading"
 
 const Homepage = () => {
     const { topic } = useParams()
     const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-
+    const [err, setErr] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams();
     const sortByQuery = searchParams.get('sort_by');
     const orderQuery = searchParams.get('order')
@@ -31,9 +32,22 @@ const Homepage = () => {
         fetchArticles(topic, sortByQuery, orderQuery).then((articlesFromApi) => {
             setArticles(articlesFromApi)
             console.log(articlesFromApi[0])
+            setErr(null)
             setIsLoading(false)
-        })
+        }).catch((error) => {
+            setErr({error})
+        });
     }, [topic, sortByQuery, orderQuery])
+
+    if(err){
+        console.log(err)
+        return (
+            <ErrorPage msg={err.error.response.data.msg} status={err.error.response.status}/>
+        )
+    }
+    if(isLoading){
+        return <Loading/>
+    }
 
     return (
         <>

@@ -4,6 +4,11 @@
     padding: 2rem;
     text-align: center;
     justify-content: center;
+    background-color: midnightblue ;
+    color:antiquewhite;
+}
+h1{
+    color: white;
 }
 .articles_display {
     display: flex;
@@ -11,34 +16,47 @@
     gap: 2rem;
     margin: 2rem;
     justify-content: center;
+    background-color: midnightblue;
+}
+.article_view {
+    justify-content: center;
+    background-color: midnightblue;
 }
 .article_card {
-    border: 1px solid black;
+    border: 1px solid white;
+    width: 300px;
     padding: 1rem;
+    color: antiquewhite
 }
 .Header {
-    border: 1px solid black;
+    border: 1px solid white;
+    color: antiquewhite;
+}
+.votes_box{
+    margin-bottom: 20px;
+}
+.votes_box button{
+    width: 10em;
 }
 .comments{
-    border: 1px solid black
+    border: 1px solid white;
+    background-color: midnightblue;
 }
 .comment_card{
-    border: 1px solid black
+    border: 1px solid white;
+    background-color: midnightblue;
+}
+.comment_Adder{
+    display: flex;
+    justify-content: center;
+}
+.submit_box{
+    margin-bottom: 20px;
+}
+.delete_button{
+    margin-bottom: 20px;
 }
 /* mobile styles */
 
 
 /* small tablet styles*/
-@media screen and (min-width: 620px) {
-    
-}
-
-/* large tablets and laptop styles*/
-@media screen and (min-width: 960px) {
-    
-}
-
-/* desktop styles*/
-@media screen and (min-width: 1200px) {
-    
-}
