@@ -26,7 +26,12 @@ h1{
     border: 1px solid white;
     width: 300px;
     padding: 1rem;
-    color: antiquewhite
+    color: antiquewhite;
+    display: flex;
+    align-items: center;
+}
+.article_img{
+    padding: 10px;
 }
 .Header {
     border: 1px solid white;
@@ -56,7 +61,10 @@ h1{
 .delete_button{
     margin-bottom: 20px;
 }
-/* mobile styles */
+.topic_buttons .box{
+    display: flex;
+    width: fit-content;
+}
 
 
-/* small tablet styles*/
+

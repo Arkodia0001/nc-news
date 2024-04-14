@@ -25,7 +25,7 @@ const CommentSection = ({article_id}) => {
     return ( 
     <section className="comments"> 
     <h3>Comments</h3>
-    <CommentAdder className="comment_adder" comments={comments} setComments={setComments} article_id={article_id}/>
+    <CommentAdder comments={comments} setComments={setComments} article_id={article_id}/>
     <div className="Comment_section">
     { comments.map((comment) => {
             return <CommentCard key={comment.comment_id} comment={comment} comments={comments} setComments={setComments}/>

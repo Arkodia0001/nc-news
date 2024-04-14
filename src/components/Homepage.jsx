@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
 import { fetchArticles } from "./api"
 import ArticlesDisplay from "./ArticlesDisplay"
-import TopicPicker from './TopicPicker'
 import { useParams } from "react-router"
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import ErrorPage from "./ErrorPage"
 import Loading from "./Loading"
+import Button from '@mui/material/Button';
 
 const Homepage = () => {
     const { topic } = useParams()
@@ -31,7 +31,6 @@ const Homepage = () => {
     useEffect(() => {
         fetchArticles(topic, sortByQuery, orderQuery).then((articlesFromApi) => {
             setArticles(articlesFromApi)
-            console.log(articlesFromApi[0])
             setErr(null)
             setIsLoading(false)
         }).catch((error) => {
@@ -50,8 +49,22 @@ const Homepage = () => {
     }
 
     return (
-        <>
-            <TopicPicker />
+        <>  
+        <div className="topic_buttons_box">
+            <Link to={`/articles`}>
+            <Button variant="contained">All</Button>
+            </Link>
+            <Link to={`/articles/topic/coding`}>
+            <Button variant="contained">coding</Button>
+            </Link>
+            <Link to={`/articles/topic/football`}>
+            <Button variant="contained">football</Button>
+            </Link>
+            <Link to={`/articles/topic/cooking`}>
+            <Button variant="contained">cooking</Button>
+            </Link>
+        
+        </div>
             <section>
                 <label htmlFor="sort_by">Sort By</label>
                 <select name="sort_by" id="" onChange={(event) => { setSortBy(event.target.value) }}>

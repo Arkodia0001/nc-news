@@ -6,7 +6,8 @@ const TopicPicker = ({topic}) => {
   const navigate = useNavigate()
   const { topics } = useContext(TopicsContext)
 
-  return <section><label htmlFor="topics">Choose a Topic </label>
+  return <section>
+    <label htmlFor="topics">Choose a Topic </label>
     <select name="Topics" id="" onChange={(event) => { navigate(`/articles/topic/${event.target.value}`) }}>
       {
         topics.map((topicItem) => {
@@ -17,6 +18,7 @@ const TopicPicker = ({topic}) => {
         })
       }
     </select>
+    
   </section>
 };
 

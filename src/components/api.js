@@ -68,3 +68,23 @@ export const fetchTopics = () => {
     return data.topics
   })
 }
+
+export const increaseCommentVotes = (comment_id) => {
+  const patchBody = {
+    inc_votes: 1
+  }
+  let endpoint = `/comments/${comment_id}`
+  return newsApiUrl.patch(endpoint, patchBody).then(({data}) => {
+    return data.article
+  })
+}
+
+export const decreaseCommentVotes = (comment_id) => {
+  const patchBody = {
+    inc_votes: -1
+  }
+  let endpoint = `/comments/${comment_id}`
+  return newsApiUrl.patch(endpoint, patchBody).then(({data}) => {
+    return data.article
+  })
+}

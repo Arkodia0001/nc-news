@@ -71,8 +71,8 @@ return (
         <p>{votes} likes!</p>
         {err ? <p>{err}</p> : null}
         <div className="votes_box">
-        <button onClick={() => upVote(article_id)}>UPVOTE</button>
-        <button onClick={() => downVote(article_id)}>DOWNVOTE</button>
+        <button onClick={() => upVote(article_id)}>Like</button>
+        <button onClick={() => downVote(article_id)}>Dislike</button>
         </div>
     </section>
     <section className="comments_section">
