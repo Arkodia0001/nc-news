@@ -37,7 +37,7 @@ const downVote = (comment_id) => {
       <p>{comment.body}</p>
       <p>By {comment.author}</p>
       <p>{(date)}</p>
-      <p>{votes} likes!</p>
+      <p>{votes} likes</p>
       {err ? <p>{err}</p> : null}
       <div className="votes_box">
       {user.username !== comment.author && comment.comment_id !== undefined ? <button onClick={() => upVote(comment.comment_id)}>Like</button>  : null}

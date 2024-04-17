@@ -10,7 +10,7 @@ const ArticleCard = ({ article }) => {
                 <img src={article.article_img_url} height={100} width={100} />
                 </div>
                 <div className="article_info">
-                <p>{article.title}</p>
+                <p className="article_title">{article.title}</p>
                 <p>{date}</p>
                 <p>Votes: {article.votes}</p>
                 <p>Comments: {article.comment_count}</p>

@@ -1,6 +1,6 @@
-# [NC News] (netlify link)
+# [NC News] (https://nc-news-rob.netlify.app/)
 
-The [NC News] (^^^^ADD NETLIFY LINK ONCE HOSTED^^^) front-end JS project intergrates with the [Be-nc-news API] (https://github.com/Arkodia0001/nc-news-be) API to generate a news article website. Account cooljmessy is automatically logged in. 
+The [NC News] (https://nc-news-rob.netlify.app/) front-end JS project intergrates with the [Be-nc-news API] (https://github.com/Arkodia0001/nc-news-be) API to generate a news article website. Account cooljmessy is automatically logged in. 
 This website project includes: 
 
   - View a full List of Articles

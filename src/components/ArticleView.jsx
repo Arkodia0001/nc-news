@@ -68,7 +68,7 @@ return (
         <img src={article.article_img_url} height={250} width={250}/>
         <p>By {article.author}</p>
         <p>{article.body}</p>
-        <p>{votes} likes!</p>
+        <p>{votes} likes</p>
         {err ? <p>{err}</p> : null}
         <div className="votes_box">
         <button onClick={() => upVote(article_id)}>Like</button>

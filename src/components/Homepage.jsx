@@ -76,8 +76,8 @@ const Homepage = () => {
             <section>
                 <label htmlFor="order">Order</label>
                 <select name="order" id="" onChange={(event) => { setOrder(event.target.value) }}>
-                    <option value={'ASC'}>Ascending</option>
                     <option value={'DESC'}>Descending</option>
+                    <option value={'ASC'}>Ascending</option>
                 </select>
             </section>
             <ArticlesDisplay articles={articles} isLoading={isLoading} />
