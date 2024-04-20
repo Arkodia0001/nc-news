@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-*{
+
+* {
     font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
+
 #root {
     min-width: 300px;
     max-width: 768px;
@@ -14,111 +16,166 @@
     padding: 2rem;
     text-align: center;
     justify-content: center;
-    color:antiquewhite;
+    color: antiquewhite;
 }
-body{
+
+body {
     background: hsla(240, 64%, 27%, 1);
 
-    background: linear-gradient(45deg, hsla(240, 64%, 27%, 1) 0%, hsla(230, 33%, 47%, 1) 50%);
-    
-    background: -moz-linear-gradient(45deg, hsla(240, 64%, 27%, 1) 0%, hsla(230, 33%, 47%, 1) 50%);
-    
-    background: -webkit-linear-gradient(45deg, hsla(240, 64%, 27%, 1) 0%, hsla(230, 33%, 47%, 1) 50%);
-    
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#191970", endColorstr="#505DA0", GradientType=1 );;
+    background: linear-gradient(45deg, hsla(230, 33%, 47%, 1) 0%, hsla(240, 64%, 27%, 1) 100%);
+
+    background: -moz-linear-gradient(45deg, hsla(230, 33%, 47%, 1) 0%, hsla(240, 64%, 27%, 1) 100%);
+
+    background: -webkit-linear-gradient(45deg, hsla(230, 33%, 47%, 1) 0%, hsla(240, 64%, 27%, 1) 100%);
+
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#191970", endColorstr="#505DA0", GradientType=1);
+    ;
 }
-header{
+.Header {
+    border: 2px solid #1976d2;
+    border-radius: 5px;
+    color: antiquewhite;
+   
+}
+header {
     color: white;
     background-color: midnightblue;
 }
-header.Header a{
+
+header.Header a {
     text-decoration: none;
     color: white;
+    font-size: x-large;
 }
+
 .articles_display {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     margin: 2rem;
     justify-content: center;
-   
+
 }
+
 .article_view {
     justify-content: center;
-    background-color: midnightblue;
+
 }
+
 .article_card {
-    border: 1px solid white;
+    border: 2px solid #1976d2;
+    border-radius: 5px;
     width: 250px;
     height: 200px;
     padding: 1rem;
-    color: antiquewhite;
+    color: #faebd7;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     background-color: midnightblue;
 }
-.article_img{
-    padding: 10px;
+
+.article_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
-.Header {
-    border: 1px solid white;
-    color: antiquewhite;
+
+.article_title {
+    white-space: pre-line;
+    text-overflow: ellipsis;
+    width: 100%;
+    font-size: medium;
+    margin: 0;
 }
-.votes_box{
+
+.article_bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.votes_box {
     margin-bottom: 20px;
 }
-.votes_box button{
+
+.votes_box button {
     width: 10em;
+    background-color: #1976d2;
 }
-.comments{
-    border: 1px solid white;
+
+.comment_card {
+    border: 3px solid #1976d2;
+    border-radius: 5px;
+    margin: 5px;
     background-color: midnightblue;
 }
-.comment_card{
-    border: 1px solid white;
-    background-color: midnightblue;
+
+.comment_adder {
+    border: 3px solid #1976d2;
+    border-radius: 5px;
+    width: 300px;
 }
-.comment_Adder{
+
+.comment_adder_box {
     display: flex;
     justify-content: center;
 }
-.submit_box{
+
+.submit_button {
     margin-bottom: 20px;
+    width: 150px;
+    height: 35px;
+    background-color: #1976d2;
+    color: antiquewhite;
+    border: 0cap;
+    border-radius: 5px;
 }
-.delete_button{
+
+.delete_button {
     margin-bottom: 20px;
+    width: 150px;
+    height: 35px;
+    background-color: #1976d2;
+    color: antiquewhite;
+    border: 0cap;
+    border-radius: 5px;
 }
-.topic_buttons_box{
+
+.topic_buttons_box {
     margin-top: 20px;
     margin-bottom: 10px;
 }
-.article_info{
-    width: 150px;
-}
-.article_title{
-    white-space: pre-line;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    height: 100px;
-}
-select{
+
+select {
     background-color: #1976d2;
     color: antiquewhite;
     border-radius: 5px;
     margin-left: 5px;
 }
 
+.like_icon {
+    height: 16px;
+    width: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.comments_icon {
+    height: 16px;
+    width: 16px;
+    margin-left: 20px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
 
 @media only screen and (min-width: 768px) {
-    #root{
+    #root {
         margin: 0 auto;
         padding: 2rem;
         text-align: center;
         justify-content: center;
-        background-color: midnightblue ;
-        color:antiquewhite;
+        color: antiquewhite;
     }
-  }
-
-
+}

@@ -22,7 +22,7 @@ const Homepage = () => {
         setSearchParams(newParams);
     };
 
-    const setOrder= (order) => {
+    const setOrder = (order) => {
         const newParams = new URLSearchParams(searchParams);
         newParams.set('order', order);
         setSearchParams(newParams);
@@ -34,43 +34,42 @@ const Homepage = () => {
             setErr(null)
             setIsLoading(false)
         }).catch((error) => {
-            setErr({error})
+            setErr({ error })
         });
     }, [topic, sortByQuery, orderQuery])
 
-    if(err){
+    if (err) {
         console.log(err)
         return (
-            <ErrorPage msg={err.error.response.data.msg} status={err.error.response.status}/>
+            <ErrorPage msg={err.error.response.data.msg} status={err.error.response.status} />
         )
     }
-    if(isLoading){
-        return <Loading/>
+    if (isLoading) {
+        return <Loading />
     }
 
     return (
-        <>  
-        <div className="topic_buttons_box">
-            <Link to={`/articles`}>
-            <Button variant="contained">All</Button>
-            </Link>
-            <Link to={`/articles/topic/coding`}>
-            <Button variant="contained">coding</Button>
-            </Link>
-            <Link to={`/articles/topic/football`}>
-            <Button variant="contained">football</Button>
-            </Link>
-            <Link to={`/articles/topic/cooking`}>
-            <Button variant="contained">cooking</Button>
-            </Link>
-        
-        </div>
+        <>
+            <div className="topic_buttons_box">
+                <Link to={`/articles`}>
+                    <Button variant="contained">All</Button>
+                </Link>
+                <Link to={`/articles/topic/coding`}>
+                    <Button variant="contained">coding</Button>
+                </Link>
+                <Link to={`/articles/topic/football`}>
+                    <Button variant="contained">football</Button>
+                </Link>
+                <Link to={`/articles/topic/cooking`}>
+                    <Button variant="contained">cooking</Button>
+                </Link>
+            </div>
             <section>
                 <label htmlFor="sort_by">Sort By</label>
                 <select name="sort_by" id="" onChange={(event) => { setSortBy(event.target.value) }}>
                     <option value={'created_at'}>Date</option>
-                    <option value={'comment_count'}>Comment Count</option>
-                    <option value={'votes'}>votes</option>
+                    <option value={'comment_count'}>Comments</option>
+                    <option value={'votes'}>likes</option>
                 </select>
             </section>
             <section>
